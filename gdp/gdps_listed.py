@@ -5,10 +5,10 @@ import folium
 import eel
 import folium.plugins 
 #import webview
-from sys import exit
+#from sys import exit
 
 #GDP
-veri = pandas.read_excel("gdps_listed.xlsx")
+veri = pandas.read_excel(r"C:\Users\Gorkem\Desktop\GitHub Uploads\gdp_project_file\gdp\gdps_listed.xlsx")
 
 #GDP Excel Labels
 enlemler       = list(veri["Enlem"])
@@ -124,7 +124,7 @@ for enlem, boylam, onceki_gdp, son_gdp in zip(enlemler, boylamlar, onceki_yil_gd
 
 
 #Ulke sinirlarinin cizilmesi
-nufus_dagilim_haritasi.add_child(folium.GeoJson(data = (open("world.json", "r", encoding = "utf-8-sig").read()),
+nufus_dagilim_haritasi.add_child(folium.GeoJson(data = (open(r"C:\Users\Gorkem\Desktop\GitHub Uploads\gdp_project_file\gdp\world.json", "r", encoding = "utf-8-sig").read()),
                                         style_function = lambda x :{"fillColor": "red" if x["properties"]["POP2005"] > 100000000 else "orange",
                                         "color" : "white", "weight" : 0.75},
                                         highlight_function = lambda x :{"fillColor": "black"}, ))
@@ -151,7 +151,13 @@ world_map.save("world_map_gdp.html") #html olarak kayit
 #Window View
 if __name__ == '__main__':
     eel.init(".")
-    eel.start(r"C:\Users\Gorkem\Desktop\New folder/world_map_gdp.html")
+    eel.start(r"C:\Users\Gorkem\Desktop\GitHub Uploads\gdp_project_file\gdp\world_map_gdp.html")
     #eel._detect_shutdown()
     #webview.create_window("Title", "WorldMapDataDisplay", frameless = True)
     #webview.start() 
+
+
+
+
+
+
